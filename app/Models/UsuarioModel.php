@@ -37,8 +37,8 @@ class UsuarioModel extends Model{
         }
     }
 
-    public function buscarUsuario(string $email, string $value){
-        return $this->where($email,$value)->first();
+    public function buscarUsuario(string $usuario, string $value){
+        return $this->where($usuario,$value)->first();
     }
 
     public function buscarRol(string $value){

@@ -28,13 +28,9 @@ Login
         <form action="<?=base_url(route_to('signin'))?>" method="POST">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" name="email" value='<?=old('email')?>' type=""
-                        placeholder="Correo Electronico">
+                    <input class="input" name="usuario" value='<?=old('usuario')?>' type="" placeholder="Usuario">
                     <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
+                        <i class="fas fa-user"></i>
                     </span>
                 </p>
                 <p class="is-danger help"><?=session('errors.email')?></p>

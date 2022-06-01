@@ -6,51 +6,82 @@
         </a>
     </div>
 
-    <div class="navbar-menu tabs is-centered is-boxed">
-        <ul>
-            <!--fas fa-file-alt-->
-            <li class="<?=service('request')->uri->getPath() == 'admin/incidencias' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('incidencia'))?>">
-                    <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Incidencias</span>
+    <div id="navbarExampleTransparentExample" class="navbar-menu is-right">
+        <div class="navbar-start">
+            <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/incidencias' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('incidencia'))?>">
+                <span class="icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                <span>Incidencias</span>
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Gestionar
                 </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/registrar-usuario' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('register'))?>">
-                    <span class="icon is-small"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Registrar usuario</span>
-                </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/buscar-usuario' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('search'))?>">
-                    <span class="icon is-small"><i class="fas fa-search" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Buscar usuario</span>
-                </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/agregar-dispositivo' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('addDispositivo'))?>">
-                    <span class="icon is-small"><i class="fa fa-computer" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Agregar dispositivo</span>
-                </a>
-            </li>
-            <!--<i class="fas fa-chart-bar"></i>-->
-            <li class="<?=service('request')->uri->getPath() == 'admin/reportes' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('report'))?>">
-                    <span class="icon is-small"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Reportes</span>
-                </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/configuracion' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('config'))?>">
-                    <span class="icon is-small"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Configuración</span>
-                </a>
-            </li>
-        </ul>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/registrar-usuario' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('register'))?>">
+                        <span class="icon"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+                        <span> Usuarios</span>
+                    </a>
+                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/registrar-ct' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('registerCt'))?>">
+                        <span class="icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+                        <span> Centros de tecnologia</span>
+                    </a>
+                </div>
+            </div>
 
-        <a class="navbar-end" href="<?=base_url(route_to('logout'))?>">
-            <span class="has-text-black is-right">Cerrar sesión</span>
-            <span class="icon is-small"><i class="fas fa-sign-out-alt"></i></span>
-        </a>
-    </div>
+            <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/buscar-usuario' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('search'))?>">
+                <span class="icon"><i class="fas fa-search" aria-hidden="true"></i></span>
+                <span>Buscar usuario</span>
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Gestionar dispositivos
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item <?=service('request')->uri->getPath() == '' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('register'))?>">
+                        <span class="icon"><i class="fas fa-keyboard" aria-hidden="true"></i></span>
+                        <span>Tipo de dispositivos</span>
+                    </a>
+                    <a class="navbar-item" href="#">
+                        <span class="icon"><i class="fa fa-computer" aria-hidden="true"></i></span>
+                        <span>Agregar dispositvios</span>
+                    </a>
+                    <a class="navbar-item" href="#">
+                        <span class="icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+                        <span>Agregar dispositivo a CT</span>
+                    </a>
+                </div>
+            </div>
+
+            <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/reportes' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('report'))?>">
+                <span class="icon"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
+                <span>Reportes</span>
+            </a>
+
+            <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/configuracion' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('config'))?>">
+                <span class="icon"><i class="fa fa-cog"></i></span>
+                <span>Configuración</span>
+            </a>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    <p class="control">
+                        <a class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('logout'))?>">
+                            <span class="has-text-white">Cerrar sesión</span>
+                            <span class="icon has-text-white"><i class="fas fa-sign-out-alt"></i></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
 </nav>

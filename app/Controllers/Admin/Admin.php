@@ -29,6 +29,9 @@ class Admin extends BaseController{
     public function configuracion(){
         return view ('admin/configuracion');
     }
+    public function registerCt(){
+        return view ('admin/registrarCt');
+    }
     public function registrarUsuario(){
 
         $validar = service('validation');
@@ -90,6 +93,31 @@ class Admin extends BaseController{
             'type'=>'success',
             'body'=>'Usuario registrado correctamente'
         ]);
+    }
+    public function registrarCentroTecnologia(){
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'nombreCt'=>'required',
+            'encargado'=>'required',
+            'descripcion'=>'required',
+        ],
+        [
+            'nombreCt' => [
+                    'required' => 'Digite un nombre'
+            ],
+            'encargado' => [
+                'required' => 'Digite un encargado'
+            ],
+            'descripcion' => [
+                'required' => 'Digite una descripcion'
+            ]
+        ]
+        ); 
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
     }
 
     public function cerrar(){

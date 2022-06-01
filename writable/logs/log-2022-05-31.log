@@ -123,3 +123,9 @@ CRITICAL - 2022-05-31 13:42:17 --> Argument 1 passed to App\Models\UsuarioModel:
 #3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2022-05-31 23:59:18 --> roles filter must have a matching alias defined.
+#0 C:\laragon\www\CT_prueba\system\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('roles')
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(384): CodeIgniter\Filters\Filters->enableFilter('roles', 'before')
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

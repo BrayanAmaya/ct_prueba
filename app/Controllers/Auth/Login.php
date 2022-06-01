@@ -17,12 +17,11 @@ class Login extends BaseController{
 
     public function signin(){
         if(!$this->validate([
-            'email'=>'required|valid_email',
+            'usuario'=>'required',
             'password'=>'required'
         ],[
             'email' => [
-                'required' => 'Digite un correo',
-                'valid_email' => 'Correo no valido'
+                'required' => 'Digite un usuario'
             ],
             'password' => [
                 'required' => 'Digite una contraseña'
@@ -30,12 +29,12 @@ class Login extends BaseController{
         ])){
             return redirect()->back()->with('errors',$this->validator->getErrors())->withInput();
         }
-         $email = trim($this->request->getVar('email'));
+         $user = trim($this->request->getVar('usuario'));
          $password = trim($this->request->getVar('password'));
  
          $model = model('UsuarioModel');
  
-         if(!$usuario = $model->buscarUsuario('email', $email)){
+         if(!$usuario = $model->buscarUsuario('usuario', $user)){
              return redirect()
                      ->back()
                      ->with('msg',[

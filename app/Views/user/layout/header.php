@@ -6,31 +6,38 @@
         </a>
     </div>
 
-    <div class="navbar-menu tabs is-centered is-boxed">
-        <ul>
-            <li class="<?=service('request')->uri->getPath() == 'user/home' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('user'))?>">
-                    <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Mis incidencias</span>
-                </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/reportes' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('report'))?>">
-                    <span class="icon is-small"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Reportes</span>
-                </a>
-            </li>
-            <li class="<?=service('request')->uri->getPath() == 'admin/configuracion' ? 'is-active' : '' ?>">
-                <a href="<?=base_url(route_to('config'))?>">
-                    <span class="icon is-small"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                    <span class="has-text-black">Configuración</span>
-                </a>
-            </li>
-        </ul>
+    <div id="navbarExampleTransparentExample" class="navbar-menu is-right">
+        <div class="navbar-start">
+            <a class="navbar-item <?=service('request')->uri->getPath() == 'user/home' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('user'))?>">
+                <span class="icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                <span>Mis incidencias</span>
+            </a>
 
-        <a class="navbar-end" href="<?=base_url(route_to('logout'))?>">
-            <span class="has-text-black is-right">Cerrar sesión</span>
-            <span class="icon is-small"><i class="fas fa-sign-out-alt"></i></span>
-        </a>
-    </div>
+            <a class="navbar-item <?=service('request')->uri->getPath() == '' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('user'))?>">
+                <span class="icon"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
+                <span>Reportes</span>
+            </a>
+
+            <a class="navbar-item <?=service('request')->uri->getPath() == '' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('user'))?>">
+                <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                <span>Configuración</span>
+            </a>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    <p class="control">
+                        <a class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('logoutU'))?>">
+                            <span class="has-text-white">Cerrar sesión</span>
+                            <span class="icon has-text-white"><i class="fas fa-sign-out-alt"></i></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
 </nav>

@@ -74,7 +74,7 @@ Registrar usuario
         <div class="field">
             <label class="label">Contraseña</label>
             <div class="control">
-                <input name='password' class="input" type="text" placeholder="Contraseña">
+                <input name='password' class="input" type="password" placeholder="Contraseña">
             </div>
             <p class="is-danger help"><?=session('errors.password')?></p>
         </div>
@@ -82,7 +82,7 @@ Registrar usuario
         <div class="field">
             <label class="label">Confirma tu contraseña</label>
             <div class="control">
-                <input name='c-password' class="input" type="text" placeholder="Repite contraseña">
+                <input name='c-password' class="input" type="password" placeholder="Repite contraseña">
             </div>
         </div>
 

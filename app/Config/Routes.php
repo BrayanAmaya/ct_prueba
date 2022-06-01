@@ -33,12 +33,13 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');
 
-$routes->group('/',['namespace'=>'App\Controllers\Auth'],function($routes){
+$routes->group('/',['namespace'=>'App\Controllers\Auth','filter' => 'auth'],function($routes){
     $routes->get('', 'Login::index',['as' => 'index']);
+    $routes->get('login', 'Login::index',['as' => 'login']);
     $routes->post('checklogin', 'Login::signin', ['as'=>'signin']);
 });
 
-$routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
+$routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:Admin'],function($routes){
     $routes->get('incidencias', 'Admin::index',['as'=>'incidencia']);
     $routes->get('registrar-usuario', 'Admin::register',['as'=>'register']);
     $routes->post('registrar', 'Admin::registrarUsuario');
@@ -46,11 +47,14 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin'],function($routes){
     $routes->get('buscar-usuario', 'Admin::buscarUsuario',['as'=>'search']);
     $routes->get('agregar-dispositivo', 'Admin::agregarDispositivo',['as'=>'addDispositivo']);
     $routes->get('configuracion', 'Admin::configuracion',['as'=>'config']);
+    $routes->get('registrar-ct', 'Admin::registerCt',['as'=>'registerCt']);
+    $routes->post('registrarCt', 'Admin::registrarCentroTecnologia');
     $routes->get('cerrar', 'Admin::cerrar',['as'=>'logout']);
 });
 
-$routes->group('user',['namespace'=>'App\Controllers\User'],function($routes){
+$routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){
     $routes->get('home', 'User::index', ['as'=>'user']);
+    $routes->get('cerrar', 'User::cerrarS',['as'=>'logoutU']);
 });
 
 /*

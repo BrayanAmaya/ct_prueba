@@ -10,4 +10,9 @@ class User extends BaseController
     {
         return view ('user/home');
     }
+
+    public function cerrarS(){
+        session()->destroy();
+        return redirect()->route('index');
+    }
 }
