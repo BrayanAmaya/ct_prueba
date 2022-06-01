@@ -21,7 +21,10 @@ class Admin extends BaseController{
         return view ('admin/reportes');
     }
     public function buscarUsuario(){
-        return view ('admin/buscarUsuario');
+        $model = model('UsuarioModel');
+        return view ('admin/buscarUsuario',[
+            'usuarios' => $model->findAll()
+        ]);
     }
     public function agregarDispositivo(){
         return view ('admin/agregarDispositivo');
