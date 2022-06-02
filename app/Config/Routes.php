@@ -50,6 +50,7 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->get('registrar-ct', 'Admin::registerCt',['as'=>'registerCt']);
     $routes->post('registrarCt', 'Admin::registrarCentroTecnologia');
     $routes->get('cerrar', 'Admin::cerrar',['as'=>'logout']);
+    $routes->get('actuaizar-usuario', 'Admin::actualizar',['as'=>'update']);
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){

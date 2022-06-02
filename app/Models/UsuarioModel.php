@@ -20,9 +20,10 @@ class UsuarioModel extends Model{
     protected $updatedField  = 'date_update';
     protected $deletedField  = 'date_delete';
 
-    protected $beforeInsert = ['agregarRol'];
+    protected $beforeInsert = ['agregarRol','agregarEstado'];
 
     protected $asignarRol;
+    protected $asignarEstado;
     protected $asignarVistaRol;
 
     protected function agregarRol($data){
@@ -35,6 +36,15 @@ class UsuarioModel extends Model{
         if($row !== null){
             $this->asignarRol = $row->idRol;
         }
+    }
+
+    protected function agregarEstado($data){
+        $data['data']['estado'] = $this->asignarEstado;
+        return $data;
+    }
+
+    public function agregarUnEstado(){
+        $this->asignarEstado = 1;
     }
 
     public function buscarUsuario(string $usuario, string $value){

@@ -60,7 +60,8 @@ Buscar usuario
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="#">
+                    <a
+                        href="<?=base_url(route_to('update'))?>?id=<?= password_hash($key->idUsuario,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-warning"><i class="fas fa-sync" aria-hidden="true"></i></span>
                     </a>
                     <a href="#">

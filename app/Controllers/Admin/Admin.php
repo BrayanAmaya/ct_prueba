@@ -90,6 +90,8 @@ class Admin extends BaseController{
 
         $model->agregarUnRol($this->configs->defaultRolUsuario);
 
+        $model->agregarUnEstado();
+
         $model->save($usuario);
 
         return redirect()->route('register')->with('msg',[
@@ -121,6 +123,24 @@ class Admin extends BaseController{
         if(!$validar->withRequest($this->request)->run()){
             return redirect()->back()->withInput()->with('errors',$validar->getErrors());
         }
+    }
+
+    public function actualizar(){
+        $valorRecibido = $_GET['id'];
+        $model = model('UsuarioModel');
+        $valorMostar = null;
+        $buscar = $model->findAll();
+
+        foreach ($buscar as $key) {
+            if(password_verify($key->idUsuario,$valorRecibido)){
+                $valorMostar = $key->idUsuario;
+                break;
+            }
+        }
+        
+        return view ('admin/actualizarUsuario',[
+            'mostrar' => $model->find($valorMostar)
+        ]);
     }
 
     public function cerrar(){
