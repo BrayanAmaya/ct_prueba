@@ -63,12 +63,24 @@
                 <span class="icon"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
                 <span>Reportes</span>
             </a>
-
-            <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/configuracion' ? 'is-active' : '' ?>"
-                href="<?=base_url(route_to('config'))?>">
-                <span class="icon"><i class="fa fa-cog"></i></span>
-                <span>Configuración</span>
-            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <span class="icon"><i class="fa fa-cog"></i></span>
+                    <span>Configuración</span>
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/perfil' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('perfil'))?>">
+                        <span class="icon"><i class="fas fa-user-plus" aria-hidden="true"></i></span>
+                        <span> Mi perfil</span>
+                    </a>
+                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/actualizar-perfil' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('updatePerfil'))?>">
+                        <span class="icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+                        <span>Actualizar</span>
+                    </a>
+                </div>
+            </div>
 
         </div>
 

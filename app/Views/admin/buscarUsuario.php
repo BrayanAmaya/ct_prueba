@@ -17,7 +17,18 @@ Buscar usuario
 
 <?=$this->section('content')?>
 <?php $configs = config('CT'); ?>
-<section class="container">
+<section class="container"><br><br>
+    <a class="" href="<?=base_url(route_to('search'))?>?estado=1">
+        <span class="icon"><i class="fa fa-cog"></i></span>
+        <span>Activo</span>
+    </a>
+
+    <a class="" href="<?=base_url(route_to('search'))?>?estado=0">
+        <span class="icon"><i class="fa fa-cog"></i></span>
+        <span>No activo</span>
+    </a>
+
+    <br><br>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -64,9 +75,18 @@ Buscar usuario
                         href="<?=base_url(route_to('update'))?>?id=<?= password_hash($key->idUsuario,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-warning"><i class="fas fa-sync" aria-hidden="true"></i></span>
                     </a>
-                    <a href="#">
+                    <?php if($key->estado == 1): ?>
+                    <a
+                        href="<?=base_url(route_to('delete'))?>?estado=0&id=<?= password_hash($key->idUsuario,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-danger"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
                     </a>
+                    <?php else: ?>
+                    <a
+                        href="<?=base_url(route_to('back'))?>?estado=1&id=<?= password_hash($key->idUsuario,PASSWORD_DEFAULT)?>">
+                        <span class="icon has-text-success"><i class="fas fa-upload" aria-hidden="true"></i></span>
+                    </a>
+                    <?php endif; ?>
+
                 </td>
             </tr>
             <?php endforeach; ?>
