@@ -22,9 +22,9 @@ Actualizar usuario
 
     <div class="container">
 
-        <h1 class="title">Registrar un nuevo usuario</h1>
+        <h1 class="title">Actualizar usuario</h1>
         <h2 class="subtitle">
-            Llena los siguientes datos para agregar un nuevo usuario.
+            Modifique los datos del usuario que desea actualizar.
         </h2>
         <form class="border p-3 form "
             action="<?=base_url('admin/actualizarUsuario')?>?id=<?= password_hash($mostrar->idUsuario,PASSWORD_DEFAULT)?>"
